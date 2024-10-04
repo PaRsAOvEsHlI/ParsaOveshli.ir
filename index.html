@@ -1,1 +1,312 @@
-hello world
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parsa Oveshli | پارسا اوشلی</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-EN.png">
+  <link rel="icon" sizes="192x192" href="images/android-chrome-192x192-EN.png">
+  <link rel="icon" sizes="512x512" href="images/android-chrome-512x512-EN.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32-EN.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16-EN.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/main.min.css">
+  <script>
+    if (localStorage.theme === "dark" || !"theme" in localStorage) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+</head>
+
+<body
+  class="bg-slate-50 antialiased text-slate-600 mx-4 sm:mx-6 mb-4 dark:bg-[#131313] dark:text-slate-400 selection:bg-[#007bff] selection:text-white">
+  <div class="max-w-7xl mx-auto">
+    <header class="py-4">
+      <div class="flex justify-between items-center">
+        <button id="toggleMenu" data-toggle="false" class="z-20  hover:cursor-pointer sm:hidden">
+          <svg class="icon" id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg id="closeIcon" class="hidden icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <div class="rtl:pr-2 ltr:pl-2 hidden sm:flex sm:items-center">
+          <!-- Add "index.html" if you are not using a local server or host -->
+          <a href="/" draggable="false" class="flex items-center rtl:ml-6 ltr:mr-6">
+            <img src="fonts/logo-en.png" alt="iresume logo" draggable="false"
+              class="h-9 w-auto rtl:ml-2 ltr:mr-2 drag-none rounded-lg">
+          </a>
+          <nav>
+            <ul class="flex items-center gap-x-4">
+              <li>
+                <a href="#link 1"
+                  class="font-medium leading-normal	text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
+                  target="_blank">Soon</a>
+              </li>
+              <li>
+                <a href="#Link2"
+                  class="font-medium leading-normal	text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
+                  target="_blank">Soon</a>
+              </li>
+              <li>
+                <a href="#Link3"
+                  class="font-medium leading-normal	text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
+                  target="_blank">Soon</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="flex flex-row-reverse items-center rtl:gap-x-2 ltr:gap-x-1">
+          <button id="toggleDarkMode">
+            <svg class="icon hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="icon hidden" id="sunIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <nav id="mobileMenu" class="hidden mt-4 mb-2 rtl:mr-2.5 ltr:ml-2.5 sm:hidden">
+        <ul class="space-y-4 rtl:border-r ltr:border-l border-slate-200 dark:border-slate-700">
+          <li>
+            <a href="#Link1"
+              class="text-slate-600 block rtl:pr-4 ltr:pl-4 text-base font-medium hover:text-slate-900 rtl:focus:border-r-2 ltr:focus:border-l-2 focus:border-slate-700 rtl:hover:border-r-2 ltr:hover:border-l-2 hover:border-slate-700 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:border-slate-200"
+              target="_blank">Link 1</a>
+          </li>
+          <li>
+            <a href="#Link2"
+              class="text-slate-600 block rtl:pr-4 ltr:pl-4 text-base font-medium hover:text-slate-900 rtl:focus:border-r-2 ltr:focus:border-l-2 focus:border-slate-700 rtl:hover:border-r-2 ltr:hover:border-l-2 hover:border-slate-700 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:border-slate-200"
+              target="_blank">Link 2</a>
+          </li>
+          <li>
+            <a href="#Link3"
+              class="text-slate-600 block rtl:pr-4 ltr:pl-4 text-base font-medium hover:text-slate-900 rtl:focus:border-r-2 ltr:focus:border-l-2 focus:border-slate-700 rtl:hover:border-r-2 ltr:hover:border-l-2 hover:border-slate-700 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:border-slate-200"
+              target="_blank">Link 3</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="bg-white flex flex-col shadow-md rounded-3xl lg:flex-row dark:bg-zinc-900">
+      <aside class="bg-secondary rounded-3xl p-8 dark:bg-gray-800">
+        <div class=" flex flex-col justify-center items-center sticky top-8 lg:w-[260px]">
+          <!-- Profile Picture / تصویر پروفایل -->
+          <img src="images/profile.png" alt="a faceless man" class="w-full max-w-[250px] mb-6">
+          <!-- Fullname / نام کامل -->
+          <h1 class="text-2xl text-slate-200 font-medium mb-2">Parsa Oveshli</h1>
+          <div class="flex flex-wrap justify-center mb-2">
+            <!-- Tags / عناوین-->
+            <span class="tag">Developer</span>
+            <span class="tag">Student</span>
+          </div>
+          <div class="mb-4"></div>
+          <!-- Personal Information / اطاعات شخصی -->
+          <table class="w-full text-slate-300 text-sm max-w-[250px] mb-2">
+            <tbody>
+              <tr class="flex justify-between mb-4">
+                <td class="rtl:text-right ltr:text-left">Gender</td>
+                <td class="rtl:text-left ltr:text-right">Male</td>
+              </tr>
+              <tr class="flex justify-between mb-4">
+                <td class="rtl:text-right ltr:text-left">Marital Status</td>
+                <td class="rtl:text-left ltr:text-right">Single</td>
+              </tr>
+              <tr class="flex justify-between mb-4">
+                <td class="rtl:text-right ltr:text-left">Nationality</td>
+                <td class="rtl:text-left ltr:text-right">Iranian</td>
+              </tr>
+              <tr class="flex justify-between mb-4">
+                <td class="rtl:text-right ltr:text-left">Location</td>
+                <td class="rtl:text-left ltr:text-right">Iran , Tehran</td>
+              </tr>
+              <tr class="border-1 border-t border-slate-700 dark:border-slate-600 w-1/2 block mx-auto mb-4"></tr>
+              <tr class="flex justify-between mb-4">
+                <td class="rtl:text-right ltr:text-left">Expected Salary</td>
+                <td class="rtl:text-left ltr:text-right">Not Specified</td>
+              </tr>
+              <tr class="border-1 border-t border-slate-700 dark:border-slate-600 w-1/2 block mx-auto mb-4"></tr>
+              <tr class="flex justify-between mb-4">
+                <td class="rtl:text-right ltr:text-left">Phone</td>
+                <td class="rtl:text-left ltr:text-right">Soon</td>
+              </tr>
+              <tr class="flex justify-between mb-4">
+                <td class="rtl:text-right ltr:text-left">E-mail</td>
+                <td class="rtl:text-left ltr:text-right">soon</td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="https://t.me/imtodo2" class="btn-cta inline-block align-middle">
+            Hire Me
+          </a>
+        </div>
+      </aside>
+      <main class="bg-white p-6 lg:py-8 lg:px-10 rounded-3xl dark:bg-zinc-900/90">
+        <!-- About Me (Biography) / درباره من (بیوگرافی) -->
+        <div class="mb-10">
+          <div class="flex items-center text-slate-900 dark:text-slate-200 mb-2">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            <h2 class="mx-2 text-2xl font-bold">
+              Biography
+            </h2>
+          </div>
+          <p>Hello, my name is Parsa , My nickname is Todo. I love programming, singing, acting, playing, Love
+            and ... I was born in Tehran province in Iran. I have a brother</p>
+        </div>
+        <!-- The Skills / مهارت ها -->
+        <div class="mb-10">
+          <div class="flex items-center mb-4 text-slate-900 dark:text-slate-200">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+            <h2 class="mx-2 text-2xl font-bold">
+              Skills
+            </h2>
+          </div>
+          <div class="grid grid-cols1 sm:grid-cols-2 gap-y-4 gap-x-6">
+            <div>
+              <span class="inline-block font-medium text-slate-700 text-md mb-2 dark:text-slate-400">PHP</span>
+              <div class="w-full bg-primary/25 rounded-full">
+                <div class="progress-bar" style="width: 10%;">
+                  <span class="px-2">10%</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <span class="inline-block font-medium text-slate-700 text-md mb-2 dark:text-slate-400">HTML & CSS</span>
+              <div class="w-full bg-primary/25 rounded-full">
+                <div class="progress-bar" style="width: 100%;">
+                  <span class="px-2">100%</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <span class="inline-block font-medium text-slate-700 text-md mb-2 dark:text-slate-400">Javascript</span>
+              <div class="w-full bg-primary/25 rounded-full">
+                <div class="progress-bar" style="width: 80%;">
+                  <span class="px-2">80%</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <span class="inline-block font-medium text-slate-700 text-md mb-2 dark:text-slate-400">Drawing</span>
+              <div class="w-full bg-primary/25 rounded-full">
+                <div class="progress-bar" style="width: 90%;">
+                  <span class="px-2">90%</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <span class="inline-block font-medium text-slate-700 text-md mb-2 dark:text-slate-400">Computer</span>
+              <div class="w-full bg-primary/25 rounded-full">
+                <div class="progress-bar" style="width: 70%;">
+                  <span class="px-2">70%</span>
+                </div>
+              </div>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+        <!-- The Languages / زبان ها -->
+        <div class="mb-10">
+          <div class="flex items-center mb-4 text-slate-900 dark:text-slate-200">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            <h2 class="mx-2 text-2xl font-bold">
+              Languages
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
+            <div class="flex items-center justify-between">
+              <span class="pl-2 font-medium text-slate-700 text-md dark:text-slate-400">Persian</span>
+              <ul class="dot-container">
+                <li class="dot"></li>
+                <li class="dot"></li>
+                <li class="dot"></li>
+                <li class="dot"></li>
+                <li class="dot"></li>
+              </ul>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="pl-2 font-medium text-slate-700 text-md dark:text-slate-400">English</span>
+              <ul class="dot-container">
+                <li class="dot"></li>
+                <li class="dot"></li>
+                <li class="dot"></li>
+                <li class=""></li>
+                <li class=""></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- The Favorites(Hobbies) / علاقه مندی ها -->
+        <div class="mb-10">
+          <div class="flex items-center mb-2 text-slate-900 dark:text-slate-200">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+            <h2 class="mx-2 text-2xl font-bold dark:text-slate-200">
+              Favorites
+            </h2>
+          </div>
+          <div class="flex flex-wrap">
+            <span class="favorite-item">Learning</span>
+            <span class="favorite-item">Music</span>
+            <span class="favorite-item">Violin</span>
+            <span class="favorite-item">Team work</span>
+            <span class="favorite-item">Creativity</span>
+            <span class="favorite-item">Bike</span>
+            <span class="favorite-item">Programming</span>
+            <span class="favorite-item">Book</span>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer class="mx-auto text-center py-8">
+      <p class="text-slate-500 ltr">
+        Copyright © Parsa Oveshli — All rights reserved.
+      </p>
+    </footer>
+  </div>
+  <script src="js/main.min.js" defer></script>
+
+
+</body>
+
+</html>
