@@ -98,7 +98,7 @@
         
 @font-face {
     font-family: 'Titr';
-    src: url('/fonts/IRTitr.ttf') format('truetype');
+    src: url('IRTitr.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -109,7 +109,7 @@
     <div class="info-box">
         <h2>جلسه اول</h2>
         <p>ساختار اصلی html</p>
-        <code id="codeBox">&lt;!DOCTYPE html&gt;
+        <code class="codeBox">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
   &lt;head&gt;
 
@@ -119,12 +119,18 @@
   &lt;body/&gt;
 &lt;html/&gt;</code>
 <p>تگ &lt;p&gt; یا همان پاراگراف</p>
-<code id="codeBox">&lt;p/&gt; متن آزمایشی &lt;p&gt; </code>
+<code class="codeBox">&lt;p/&gt; متن آزمایشی &lt;p&gt; </code>
 <p>تگ &lt;b&gt; یا همان Bold</p>
+<code class="codeBox">&lt;b/&gt; متن آزمایشی &lt;b&gt; </code>
+<p>تگ &lt;u&gt; یا همان <u>underline</u></p>
+<code class="codeBox">&lt;u/&gt; متن آزمایشی &lt;u&gt; </code>
+<p>تگ &lt;i&gt; یا همان <i>italic</i></p>
+<code class="codeBox">&lt;i/&gt; متن آزمایشی &lt;i&gt; </code>
     </div>
 
     <!-- نوار اعلان -->
     <div id="notification">کد کپی شد</div>
+    
    
     
        <div class="info-box">
@@ -145,29 +151,16 @@
     <!-- نوار اعلان -->
     <div id="notification">کد کپی شد</div>
 
-    <script>
-        // انتخاب باکس اعلان
-        const notification = document.getElementById("notification");
+    
+<script>
+    // انتخاب تمام عناصر با کلاس "codeBox"
+    const codeBoxes = document.querySelectorAll(".codeBox");
 
-        // تابع برای نمایش اعلان در موقعیت نزدیک به محل کلیک
-        function showNotificationAtScroll() {
-            // موقعیت اسکرول صفحه و اضافه کردن فاصله‌ای کوچک از بالای صفحه
-            const scrollY = window.scrollY + 20;
-            notification.style.top = scrollY + "px";
-
-            // نمایش اعلان با انیمیشن
-            notification.classList.add("show");
-
-            // مخفی کردن اعلان بعد از ۳ ثانیه
-            setTimeout(function() {
-                notification.classList.remove("show");
-            }, 3000);
-        }
-
-        // افزودن شنونده کلیک به عنصر با id="codeBox"
-        document.getElementById("codeBox").addEventListener("click", function() {
-            // کپی کردن متن داخل codeBox
-            const codeText = document.getElementById("codeBox").innerText;
+    // افزودن شنونده کلیک به هر یک از باکس‌های کد
+    codeBoxes.forEach(box => {
+        box.addEventListener("click", function() {
+            // کپی کردن متن داخل باکس
+            const codeText = box.innerText;
             const tempTextarea = document.createElement("textarea");
             tempTextarea.value = codeText;
             document.body.appendChild(tempTextarea);
@@ -175,9 +168,25 @@
             document.execCommand("copy");
             document.body.removeChild(tempTextarea);
 
-            // فراخوانی تابع نمایش اعلان
+            // نمایش اعلان کپی شدن
             showNotificationAtScroll();
         });
-    </script>
+    });
+
+    // تابع برای نمایش اعلان در موقعیت نزدیک به محل کلیک
+    const notification = document.getElementById("notification");
+
+    function showNotificationAtScroll() {
+        const scrollY = window.scrollY + 20;
+        notification.style.top = scrollY + "px";
+        notification.classList.add("show");
+
+        // مخفی کردن اعلان بعد از ۳ ثانیه
+        setTimeout(function() {
+            notification.classList.remove("show");
+        }, 3000);
+    }
+</script>
+    
 </body>
 </html>
