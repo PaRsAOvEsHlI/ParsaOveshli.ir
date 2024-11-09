@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلسات استاد احمدخانی</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            direction: rtl;
+        }
+
+        .info-box {
+            width: 80%;
+            max-width: 400px;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(145deg, #f0f0f0, #ffffff);
+            box-shadow:
+                0px 10px 15px rgba(0, 0, 0, 0.1),
+                0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transform: perspective(500px);
+        }
+
+        .info-box:hover {
+            transform: scale(1.05) rotateX(6deg) rotateY(-6deg);
+            box-shadow:
+                0px 20px 30px rgba(0, 0, 0, 0.15),
+                0px 8px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-box h2 {
+            font-family: 'Titr', sans-serif;
+            font-size: 1.6rem;
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .info-box p {
+            font-family: 'Titr', sans-serif;
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            font-weight: bold;
+        }
+
+        code {
+            display: block;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgb(227, 228, 232);
+            background-color: rgb(27, 38, 59);
+            padding: 16px;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 300px;
+            border: 1px solid rgb(4, 196, 201);
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            cursor: pointer;
+        }
+
+        #notification {
+            display: none;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px) saturate(150%);
+            color: #000000;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+
+        #notification.show {
+            display: block;
+            opacity: 1;
+        }
+        
+        
+@font-face {
+    font-family: 'Titr';
+    src: url('IRTitr.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    </style>
+</head>
+<body>
+    <div class="info-box">
+        <h2>جلسه اول</h2>
+        <p>ساختار اصلی html</p>
+        <code id="codeBox">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+
+  &lt;head/&gt;
+  &lt;body&gt;
+
+  &lt;body/&gt;
+&lt;html/&gt;</code>
+<p>تگ &lt;p&gt; یا همان پاراگراف</p>
+<code id="codeBox">&lt;p/&gt; متن آزمایشی &lt;p&gt; </code>
+<p>تگ &lt;b&gt; یا همان Bold</p>
+    </div>
+
+    <!-- نوار اعلان -->
+    <div id="notification">کد کپی شد</div>
+   
+    
+       <div class="info-box">
+        <h2>جلسه دوم</h2>
+
+    </div>
+
+    <!-- نوار اعلان -->
+    <div id="notification">کد کپی شد</div>
+
+
+
+       <div class="info-box">
+        <h2>جلسه سوم</h2>
+
+    </div>
+
+    <!-- نوار اعلان -->
+    <div id="notification">کد کپی شد</div>
+
+    <script>
+        // انتخاب باکس اعلان
+        const notification = document.getElementById("notification");
+
+        // تابع برای نمایش اعلان در موقعیت نزدیک به محل کلیک
+        function showNotificationAtScroll() {
+            // موقعیت اسکرول صفحه و اضافه کردن فاصله‌ای کوچک از بالای صفحه
+            const scrollY = window.scrollY + 20;
+            notification.style.top = scrollY + "px";
+
+            // نمایش اعلان با انیمیشن
+            notification.classList.add("show");
+
+            // مخفی کردن اعلان بعد از ۳ ثانیه
+            setTimeout(function() {
+                notification.classList.remove("show");
+            }, 3000);
+        }
+
+        // افزودن شنونده کلیک به عنصر با id="codeBox"
+        document.getElementById("codeBox").addEventListener("click", function() {
+            // کپی کردن متن داخل codeBox
+            const codeText = document.getElementById("codeBox").innerText;
+            const tempTextarea = document.createElement("textarea");
+            tempTextarea.value = codeText;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempTextarea);
+
+            // فراخوانی تابع نمایش اعلان
+            showNotificationAtScroll();
+        });
+    </script>
+</body>
+</html>
