@@ -30,10 +30,11 @@
             text-align: center;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             transform: perspective(500px);
+             animation: glow 3s ease-in-out infinite;
         }
 
         .info-box:hover {
-            transform: scale(1.05) rotateX(6deg) rotateY(-6deg);
+            transform: scale(1.05) rotateX(1deg) rotateY(-1deg);
             box-shadow:
                 0px 20px 30px rgba(0, 0, 0, 0.15),
                 0px 8px 10px rgba(0, 0, 0, 0.3);
@@ -46,7 +47,7 @@
             color: #333;
         }
 
-        .info-box p {
+        .info-box p , h3{
             font-family: 'Titr', sans-serif;
             font-size: 1rem;
             color: #666;
@@ -72,6 +73,7 @@
             white-space: pre-wrap;
             overflow-wrap: break-word;
             cursor: pointer;
+            direction: ltr;
         }
 
         #notification {
@@ -102,7 +104,24 @@
     font-weight: normal;
     font-style: normal;
 }
-
+        /* انیمیشن سایه متحرک */
+        @keyframes glow {
+            0% {
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            50% {
+                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            }
+            100% {
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            }
+        }
+.outline {
+    color: #ff1212; /* رنگ قرمز */
+    -webkit-text-stroke: 1px black; /* حاشیه مشکی دور متن */
+    font-size: 35px; /* اندازه متن */
+    font-weight: bold; /* ضخامت متن */
+}
     </style>
 </head>
 <body>
@@ -113,19 +132,19 @@
 &lt;html lang="en"&gt;
   &lt;head&gt;
 
-  &lt;head/&gt;
+  &lt;/head&gt;
   &lt;body&gt;
 
-  &lt;body/&gt;
-&lt;html/&gt;</code>
+  &lt;/body&gt;
+&lt;/html&gt;</code>
 <p>تگ &lt;p&gt; یا همان پاراگراف</p>
-<code class="codeBox">&lt;p/&gt; متن آزمایشی &lt;p&gt; </code>
+<code class="codeBox">&lt;p&gt; متن آزمایشی &lt;/p&gt; </code>
 <p>تگ &lt;b&gt; یا همان Bold</p>
-<code class="codeBox">&lt;b/&gt; متن آزمایشی &lt;b&gt; </code>
+<code class="codeBox">&lt;b&gt; متن آزمایشی &lt;/b&gt; </code>
 <p>تگ &lt;u&gt; یا همان <u>underline</u></p>
-<code class="codeBox">&lt;u/&gt; متن آزمایشی &lt;u&gt; </code>
+<code class="codeBox">&lt;u&gt; متن آزمایشی &lt;/u&gt; </code>
 <p>تگ &lt;i&gt; یا همان <i>italic</i></p>
-<code class="codeBox">&lt;i/&gt; متن آزمایشی &lt;i&gt; </code>
+<code class="codeBox">&lt;i&gt; متن آزمایشی &lt;/i&gt; </code>
     </div>
 
     <!-- نوار اعلان -->
@@ -136,6 +155,50 @@
        <div class="info-box">
         <h2>جلسه دوم</h2>
 
+    <p>تگ &lt;br&gt; یا همان Break Line</br> برای شکستن متن و رفتن به خط بعدی</p>
+    <code class="codeBox">&lt;br&gt; متن آزمایشی &lt;/br&gt;</code>
+
+    <p>تگ  &lt;h1&gt; تا &lt;h6&gt; به معنای Heading</p>
+    <code class="codeBox">&lt;h1&gt; متن آزمایشی &lt;/h1&gt;
+&lt;h2&gt; متن آزمایشی &lt;/h2&gt;
+&lt;h3&gt; متن آزمایشی &lt;/h3&gt;
+&lt;h4&gt; متن آزمایشی &lt;/h4&gt;
+&lt;h5&gt; متن آزمایشی &lt;/h5&gt;
+&lt;h6&gt; متن آزمایشی &lt;/h6&gt;</code>
+
+    <p>تگ &lt;font&gt; برای دادن <font face color="red"> رنگ</font> و <font face size="6"> سایز </font> و غیره </br> این تگ در HTML5 منسوخ شده است</p>
+    <code class="codeBox">&lt;p&gt;&lt;font face="Arial" size="6" color="red"&gt; متن آزمایشی &lt;/font&gt;&lt;/p&gt;</code>
+    <br>
+<h2 class="outline">سه روش CSS</h2>
+<h3>1•استفاده از سبک داخلی (Internal CSS):</br>
+در این روش، کدهای CSS به صورت مستقیم در بخش &lt;style&gt; درون تگ &lt;head&gt; صفحه HTML نوشته می‌شوند.<h3>
+ 
+    <code class="codeBox">&lt;style&gt; 
+body {
+ color: red; 
+} 
+&lt;/style&gt;</code>
+<h3>2•استفاده از سبک درون‌خطی (Inline CSS):</br>در این روش، استایل به صورت مستقیم داخل تگ HTML و با استفاده از ویژگی style تعریف می‌شود.<h3>
+	<code class="codeBox">&lt;p&gt; style="color: red; font-size: 20px;"> متن &lt;/p&gt;</code>
+	<br>
+	3•استفاده از فایل خارجی (External CSS):</br>در این روش، فایل CSS در یک فایل جداگانه با پسوند .css ذخیره شده و با استفاده از تگ &lt;html&gt; در بخش &lt;head&gt; صفحه HTML به آن متصل می‌شود.
+	<code class="codeBox">&lt;link rel="stylesheet" href="style.css"&gt;</code>
+	<p> --------------------------------------</p>
+		<h2>dir و align</h2>
+		<p>ویژگی dir برای تعیین جهت متن استفاده می‌شود.</br>این ویژگی مشخص می‌کند که متن از چپ به راست (LTR) یا راست به چپ (RTL) نمایش داده شود <br>مقادیر:<br>
+ltr: متن از چپ به راست.<br>
+rtl: متن از راست به چپ.</p>
+		<code class="codeBox">&lt;p dir="rtl"&gt; &lt;/p&gt;</code>
+		<br>
+			<p>ویژگی align مشخص می‌کند که متن یا محتوای داخل یک عنصر HTML به چه صورت چپ‌چین،  راست‌چین، وسط‌چین یا تراز شده باشد.<br>مقادیر:<br> left: محتوای عنصر به سمت چپ تراز می‌شود.<br>
+
+right: محتوای عنصر به سمت راست تراز می‌شود.<br>
+
+center: محتوای عنصر در وسط قرار می‌گیرد.<br>
+
+justify: متن به‌صورت تراز نمایش داده میشود.
+</p>
+<code class="codeBox">&lt;p align="right"&gt; &lt;p&gt;</code>
     </div>
 
     <!-- نوار اعلان -->
